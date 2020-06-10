@@ -1,0 +1,90 @@
+﻿@model TechTest.Models.Employee
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/EmployeeLayout.cshtml";
+}
+
+<h1>Update</h1>
+
+<h4>Employee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" id="EID" asp-for="EID" />
+            <div class="form-group">
+                <label asp-for="First_Name" class="control-label"></label>
+                <input id="First_Name" type="text" asp-for="First_Name" class="form-control" />
+                <span asp-validation-for="First_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Last_Name" class="control-label"></label>
+                <input id="Last_Name" type="text" asp-for="Last_Name" class="form-control" />
+                <span asp-validation-for="Last_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Designation" class="control-label"></label>
+                <input id="Designation" type="text" asp-for="Designation" class="form-control" />
+                <span asp-validation-for="Designation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Join_Date" class="control-label"></label>
+                <input id="Join_Date" type="date" asp-for="Join_Date" class="form-control" />
+                <span asp-validation-for="Join_Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Current_Salary" class="control-label"></label>
+                <input id="Current_Salary" asp-for="Current_Salary" class="form-control" />
+                <span asp-validation-for="Current_Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Department" class="control-label"></label>
+                <input id="Department" type="text" asp-for="Department" class="form-control" />
+                <span asp-validation-for="Department" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Next_Review_Date" class="control-label"></label>
+                <input id="Next_Review_Date" type="date" asp-for="Next_Review_Date" class="form-control" />
+                <span asp-validation-for="Next_Review_Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date_Of_Birth" class="control-label"></label>
+                <input id="Date_Of_Birth" type="date" asp-for="Date_Of_Birth" class="form-control" />
+                <span asp-validation-for="Date_Of_Birth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <select id="Gender">
+
+                    @if (Model.Gender.Equals("Male"))
+                    {
+
+                        <option value="Male"> Male </option>
+                        <option value="Female"> Female </option>
+                    }
+                    else
+                    {
+                        <option value="Female"> Female </option>
+                        <option value="Male"> Male </option>
+                    }
+
+                </select>
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/js/UpdateEmployee.js">  </script>
+}

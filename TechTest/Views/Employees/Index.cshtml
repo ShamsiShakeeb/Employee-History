@@ -1,0 +1,110 @@
+﻿@model TechTest.Models.Employee
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/EmployeeLayout.cshtml";
+}
+
+<h1> Create Employee  </h1>
+
+<div class="row">
+    <div class="col-md-4" id="#ECREATE">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="First_Name" class="control-label"></label>
+                <input type="text" asp-for="First_Name" id="First_Name" class="form-control" />
+                <span asp-validation-for="First_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Last_Name" class="control-label"></label>
+                <input type="text" asp-for="Last_Name" id="Last_Name" class="form-control" />
+                <span asp-validation-for="Last_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Designation" class="control-label"></label>
+                <input type="text" asp-for="Designation" id="Designation" class="form-control" />
+                <span asp-validation-for="Designation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Join_Date" class="control-label"></label>
+                <input type="date" asp-for="Join_Date" id="Join_Date" class="form-control" />
+                <span asp-validation-for="Join_Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Current_Salary" class="control-label"></label>
+                <input type="text" asp-for="Current_Salary" id="Current_Salary" class="form-control" />
+                <span asp-validation-for="Current_Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Department" class="control-label"></label>
+                <input type="text" asp-for="Department" id="Department" class="form-control" />
+                <span asp-validation-for="Department" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Next_Review_Date" class="control-label"></label>
+                <input type="date" asp-for="Next_Review_Date" id="Next_Review_Date" class="form-control" />
+                <span asp-validation-for="Next_Review_Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date_Of_Birth" class="control-label"></label>
+                <input type="date" asp-for="Date_Of_Birth" id="Date_Of_Birth" class="form-control" />
+                <span asp-validation-for="Date_Of_Birth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                Gender:  <select id="Gender" class="control-label">
+
+                    <option value="Male"> Male  </option>
+                    <option value="Female"> Female  </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="create" />
+            </div>
+
+        </form>
+
+
+
+
+
+
+    </div>
+</div>
+
+
+<h1>Employee List</h1>
+
+<div class="col-12 border p-3" id="ELIST">
+    <table id="List" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>EID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Designation</th>
+                <th>Join Date</th>
+                <th>Current Salary</th>
+                <th>Department</th>
+                <th>Next Review Date</th>
+                <th>Date Of Birth</th>
+                <th>Gender</th>
+                <th></th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/js/EmployeeList.js"></script>
+}
+
